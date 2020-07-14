@@ -54,7 +54,7 @@ function run_quietly {
     fi
     rm -f $log
     return $rc
-}
+ }
 
 
 # build environment
@@ -81,10 +81,11 @@ source $target_dir/anaconda/bin/activate ${env_name}
 
 jupyter labextension install @pyviz/jupyterlab_pyviz   # for waveform display in jupyterlab
 announce "Installing non-grid XENON software"
-pip install straxen==${straxen_version}
+#pip install straxen==${straxen_version}
 pip install git+https://github.com/XENONnT/utilix.git
 pip install git+https://github.com/XENONnT/WFSim.git
 pip install git+https://github.com/XENONnT/admix.git
+pip install git+https://github.com/XENONnT/straxen.git@osg
 
 # gfal2
 announce "Installing GFAL2"
@@ -234,13 +235,13 @@ announce "Running tests"
 # gfal2
 python -c 'import gfal2'
 # Strax
-git clone --single-branch --branch stable https://github.com/AxFoundation/strax.git
-pytest strax || { echo 'strax tests failed' ; exit 1; }
-rm -r strax
+#git clone --single-branch --branch stable https://github.com/AxFoundation/strax.git
+#pytest strax || { echo 'strax tests failed' ; exit 1; }
+#rm -r strax
 # Straxen
-git clone --single-branch --branch v$straxen_version https://github.com/XENONnT/straxen.git
-pytest straxen || { echo 'straxen tests failed' ; exit 1; }
-rm -r straxen
+#git clone --single-branch --branch v$straxen_version https://github.com/XENONnT/straxen.git
+#pytest straxen || { echo 'straxen tests failed' ; exit 1; }
+#rm -r straxen
 
 
 announce "All done!"
