@@ -9,7 +9,9 @@ gfal2_bindings_version=ac5cd70bc0654cd5b72cc01085eeaafb469b9622 # project is not
 gfal2_util_version=master # project is not releasing often enough
 rucio_version=1.21.7
 # admix_version=0.2.3
-straxen_version=0.9.0
+strax_version=0.12.0
+straxen_version=0.10.0
+
 
 #######################################################################
 
@@ -81,7 +83,8 @@ source $target_dir/anaconda/bin/activate ${env_name}
 
 jupyter labextension install @pyviz/jupyterlab_pyviz   # for waveform display in jupyterlab
 announce "Installing non-grid XENON software"
-#pip install straxen==${straxen_version}
+pip install strax==${strax_version}
+# pip install straxen==${straxen_version}
 pip install git+https://github.com/XENONnT/utilix.git
 pip install git+https://github.com/XENONnT/WFSim.git
 pip install git+https://github.com/XENONnT/admix.git
@@ -241,10 +244,12 @@ announce "Running tests"
 . ${target_dir}/setup.sh
 # gfal2
 python -c 'import gfal2'
+
 # Strax
-#git clone --single-branch --branch stable https://github.com/AxFoundation/strax.git
+#git clone --single-branch --branch v$strax_version https://github.com/AxFoundation/strax.git
 #pytest strax || { echo 'strax tests failed' ; exit 1; }
 #rm -r strax
+
 # Straxen
 #git clone --single-branch --branch v$straxen_version https://github.com/XENONnT/straxen.git
 #pytest straxen || { echo 'straxen tests failed' ; exit 1; }
