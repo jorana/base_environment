@@ -10,7 +10,7 @@ gfal2_util_version=master # project is not releasing often enough
 rucio_version=1.21.7
 # admix_version=0.2.3
 strax_version=0.12.0
-straxen_version=0.10.0
+#straxen_version=0.10.0
 
 
 #######################################################################
@@ -86,9 +86,9 @@ announce "Installing non-grid XENON software"
 pip install strax==${strax_version}
 # pip install straxen==${straxen_version}
 pip install git+https://github.com/XENONnT/utilix.git
+pip install git+https://github.com/XENONnT/straxen.git@osg
 pip install git+https://github.com/XENONnT/WFSim.git
 pip install git+https://github.com/XENONnT/admix.git
-pip install git+https://github.com/XENONnT/straxen.git@osg
 
 # gfal2
 announce "Installing GFAL2"
